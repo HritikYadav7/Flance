@@ -2,12 +2,14 @@ import React from "react"
 import "./App.scss"
 import {createBrowserRouter, RouterProvider, Outlet} from "react-router-dom";
 import Home from "./pages/home/Home"
+import Login from "./pages/login/login"
 import Navbar from "./components/Navbar/Navbar"
 import Footer from "./components/Footer/Footer";
 import Message from "./pages/message/message"
 import Messages from "./pages/messages/messages"
 import Gigs from "./pages/Gigs/Gigs"
 import Gig from "./pages/Gig/Gig"
+import Register from "./pages/register/register"
 import Orders from "./pages/orders/orders"
 import MyGigs from "./pages/MyGigs/myGigs"
 import Add from "./pages/Add/Add"
@@ -37,6 +39,10 @@ function App() {
               element: <Gigs/>
             },
             {
+              path: "/login",
+              element: <Login/>
+            },
+            {
               path: "/gig/:id",
               element: <Gig/>
             },
@@ -55,6 +61,10 @@ function App() {
             {
               path: "/message/:id",
               element: <Message/>
+            },
+            {
+              path: "/register",
+              element: <Register/>
             },
             {
               path: "/orders",
