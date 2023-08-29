@@ -1,7 +1,48 @@
-import React from 'react'
+import React, {useState} from "react"
 import "./register.scss"
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function register() {
+  const [file, setFile] = useState(null);
+  const [user, setUser] = useState({
+    username: "",
+    email: "",
+    password: "",
+    img: "",
+    country: "",
+    isSeller: false,
+    desc: "",
+  });
+  // console.log(user);
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    setUser((prev) => {
+      return { ...prev, [e.target.name]: e.target.value };
+    });
+  };
+
+  const handleSeller = (e) => {
+    setUser((prev) => {
+      return { ...prev, isSeller: e.target.checked };
+    });
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // const url = await upload(file);
+    try {
+      await axios.post("http://localhost:8800/api/auth/register",
+      { 
+        ...user,
+        // img: url,
+      });
+      navigate("/")
+    } catch (err) {
+      // console.log(err);
+    }
+  };
   return (
     <div className="register">
       <form onSubmit={handleSubmit}>
@@ -11,7 +52,7 @@ function register() {
           <input
             name="username"
             type="text"
-            placeholder="johndoe"
+            placeholder="Hritik Yadav"
             onChange={handleChange}
           />
           <label htmlFor="">Email</label>

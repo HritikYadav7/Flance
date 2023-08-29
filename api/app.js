@@ -7,8 +7,8 @@ const userRouter = require('./routes/userRoutes');
 const authRouter = require('./routes/authRoutes');
 const globalErrorHandler = require('./controllers/errorController');
 const cors = require('cors')
+const gigRouter = require('./routes/gigRoutes');
 
-// const gigRouter = require('./routes/gigRoutes');
 // const orderRouter = require('./routes/orderRoutes');
 // const reviewRouter = require('./routes/reviewRoutes');
 // const messageRouter = require('./routes/messasgeRoutes');
@@ -29,12 +29,16 @@ app.use(express.json())
 app.use(cookieParser())
 app.use('/api/auth', authRouter);
 app.use('/api/users', userRouter);
-// app.use('/api/gigs', gigRouter);
+app.use('/api/gigs', gigRouter);
 // app.use('/api/orders', orderRouter);
 // app.use('/api/reviews', reviewRouter);
 // app.use('/api/messages', messageRouter);
 // app.use('/api/conversations', conversationRouter);
 
-app.use(globalErrorHandler);
+app.use((err, req, res, next)=> {
+    const errorStatus = err.status || 500
+    const errorMessage = err.message || "Something went wrong !!!"
+    return res.status(errorStatus).send(errorMessage)
+});
 
 module.exports = app;

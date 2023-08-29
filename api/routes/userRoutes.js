@@ -4,6 +4,6 @@ const authController = require('./../controllers/authController')
 
 const router = express.Router();
 
-router.delete("/:id", authController.verifyToken, userController.deleteUser)
+// router.delete("/:id", authController.verifyToken, userController.deleteUser)
 
 module.exports = router;
