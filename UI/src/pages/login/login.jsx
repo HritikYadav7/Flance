@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import "./login.scss"
 import axios from 'axios'
+import { useNavigate } from "react-router-dom"
 // import  newRequest  from '../utils/newRequest'
 // const newRequest = require('../utils/newRequest')
-import { useNavigate } from "react-router-dom"
 
 function login() {
   const [username, setUsername] = useState("")

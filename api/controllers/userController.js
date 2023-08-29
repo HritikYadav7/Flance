@@ -15,3 +15,8 @@ exports.deleteUser = async (req, res, next) => {
     res.status(200).send('Deleted successfully !!!')
     next()
 }
+exports.getUser = async (req, res, next) => {
+    const user = await User.findById(req.params.id);
+    // console.log(user)
+    res.status(200).send(user);
+};

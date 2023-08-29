@@ -12,8 +12,8 @@ import { cards, projects } from "../../data";
 function Home() {
   return (
     <div className="home">
-      <Featured/>
-      <TrustedBy/>
+      <Featured />
+      <TrustedBy />
       <Slide slidesToShow={5} arrowsScroll={1}>
         {cards.map((card) => (
           <CatCard key={card.id} item={card} />
@@ -21,7 +21,7 @@ function Home() {
       </Slide>
       <div className="features">
         <div className="container">
-        <div className="item">
+          <div className="item">
             <h1>A whole world of freelance talent at your fingertips</h1>
             <div className="title">
               <img src="./img/check.png" alt="" />
@@ -65,7 +65,7 @@ function Home() {
 
       <div className="features dark">
         <div className="container">
-        <div className="item">
+          <div className="item">
             <h1>
               Fiverr <i>business</i>
             </h1>
@@ -90,7 +90,7 @@ function Home() {
               <img src="./img/check.png" alt="" />
               Manage teamwork and boost productivity with one powerful workspace
             </div>
-            <button>Explore Liverr Business</button>
+            <button>Explore Flance Business</button>
           </div>
           <div className="item">
             <img src="https://fiverr-res.cloudinary.com/q_auto,f_auto,w_870,dpr_1.0/v1/attachments/generic_asset/asset/d9c17ceebda44764b591a8074a898e63-1599597624757/business-desktop-870-x1.png" alt="" />
