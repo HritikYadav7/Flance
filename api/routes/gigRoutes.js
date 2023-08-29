@@ -8,7 +8,7 @@ const router = express.Router();
  
 router.post("/", verifyJWT.verifyToken, gigController.createGig);
 router.delete("/:id", verifyJWT.verifyToken, gigController.deleteGig);
-// router.post("/", verifyToken, gigController.getGig);
-// router.post("/", verifyToken, gigController.getGigs);
+router.get("/single/:id", verifyJWT.verifyToken, gigController.getGig);
+router.get("/", verifyJWT.verifyToken, gigController.getGigs);
 
 module.exports = router;
