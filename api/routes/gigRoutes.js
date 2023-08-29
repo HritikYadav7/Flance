@@ -7,7 +7,7 @@ const jwt =  require("jsonwebtoken")
 const router = express.Router();
  
 router.post("/", verifyJWT.verifyToken, gigController.createGig);
-// router.post("/", verifyToken, gigController.deleteGig);
+router.delete("/:id", verifyJWT.verifyToken, gigController.deleteGig);
 // router.post("/", verifyToken, gigController.getGig);
 // router.post("/", verifyToken, gigController.getGigs);
 
