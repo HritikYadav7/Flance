@@ -9,7 +9,6 @@ const Gig = () => {
         <div className="left">
           <span className="breadCrumbs">FIVERR  GRAPHICS & DESIGN </span>
           <h1>I will create ai generated art for you</h1>
-
           <div className="user">
             <img
               className="pp"
