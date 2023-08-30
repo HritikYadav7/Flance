@@ -5,7 +5,7 @@ const verifyJWT = require('./../middleware/verifyJWT')
 
 const router = express.Router();
 
-router.get("/:id",  userController.getUser)
+router.get("/:id", userController.getUser)
 router.delete("/:id", authController.verifyToken, userController.deleteUser)
 
 module.exports = router;
