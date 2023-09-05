@@ -7,4 +7,5 @@ const router = express.Router();
 router.post("/", verifyJWT.verifyToken, messageController.createMessage);
 router.get("/:id", verifyJWT.verifyToken, messageController.getMessages);
 
+
 export default router;
