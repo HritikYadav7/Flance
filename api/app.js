@@ -9,9 +9,14 @@ const globalErrorHandler = require('./controllers/errorController');
 const cors = require('cors')
 const gigRouter = require('./routes/gigRoutes');
 const reviewRouter = require('./routes/reviewRoutes');
+<<<<<<< HEAD
 const orderRouter = require('./routes/orderRoutes');
 const conversationRouter = require('./routes/conversationRoutes');
 
+=======
+
+// const orderRouter = require('./routes/orderRoutes');
+>>>>>>> 04a9e558222b053d49b7c52796f925a7b3781261
 // const messageRouter = require('./routes/messasgeRoutes');
 
 const app = express();
@@ -31,8 +36,12 @@ app.use('/api/auth', authRouter);
 app.use('/api/users', userRouter);
 app.use('/api/gigs', gigRouter);
 app.use('/api/reviews', reviewRouter);
+<<<<<<< HEAD
 app.use('/api/orders', orderRouter);
 app.use('/api/conversations', conversationRouter);
+=======
+// app.use('/api/orders', orderRouter);
+>>>>>>> 04a9e558222b053d49b7c52796f925a7b3781261
 // app.use('/api/messages', messageRouter);
 
 app.use((err, req, res, next)=> {

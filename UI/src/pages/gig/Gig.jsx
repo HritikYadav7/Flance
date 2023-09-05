@@ -5,6 +5,7 @@ import { Link, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import Reviews from "../../components/reviews/Reviews"
 import axios from "axios"
+<<<<<<< HEAD
 
 
 function Gig() {
@@ -34,6 +35,39 @@ function Gig() {
   });
   return (
     <div className="gig">
+=======
+
+
+function Gig() {
+  const { id } = useParams();
+  // console.log(id)
+  const { isLoading, error, data } = useQuery({
+    queryKey: ["gig"],
+    queryFn: () =>
+      axios.get(`http://localhost:8800/api/gigs/single/${id}`).then((res) => {
+        return res.data;
+      }),
+  });
+
+  const userId = data?.userId;
+
+  const {
+    isLoading: isLoadingUser,
+    error: errorUser,
+    data: dataUser,
+  } = useQuery({
+    queryKey: ["user"],
+    queryFn: () =>
+      axios.get(`http://localhost:8800/api/users/${userId}`).then((res) => {
+        return res.data;
+      }),
+    enabled: !!userId,
+  });
+
+  return (
+    <div className="gig">
+
+>>>>>>> 04a9e558222b053d49b7c52796f925a7b3781261
       {isLoading ? (
         "loading"
       ) : error ? (

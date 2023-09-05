@@ -8,7 +8,7 @@ const reviewSchema = new Schema({
   },
   userId: {
     type: String,
-    required: true,
+    // required: true,
   },
   star: {
     type: Number,
