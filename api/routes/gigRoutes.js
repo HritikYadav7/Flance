@@ -1,8 +1,8 @@
 const express = require('express')
-const gigController = require('./../controllers/gigController')
 const verifyJWT = require('../middleware/verifyJWT')
-const AppError = require('../utils/AppError')
-const jwt =  require("jsonwebtoken")
+const gigController = require('./../controllers/gigController')
+// const AppError = require('../utils/AppError')
+// const jwt =  require("jsonwebtoken")
 
 const router = express.Router();
  
