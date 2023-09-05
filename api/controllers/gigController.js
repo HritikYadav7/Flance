@@ -18,7 +18,6 @@ exports.createGig = async (req, res, next) => {
     } catch (err) {
         next(err)
     }
-    // next()
 }
 exports.deleteGig = async(req, res, next) => {
     try{

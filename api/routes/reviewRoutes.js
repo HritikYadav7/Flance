@@ -4,6 +4,7 @@ const reviewController = require('./../controllers/reviewController')
 
 const router = express.Router();
 
+// router.post("/", reviewController.createReview)
 router.post("/", verifyJWT.verifyToken, reviewController.createReview)
 router.get("/:gigId", reviewController.getReviews )
 router.delete("/:id", reviewController.deleteReview)

@@ -1,4 +1,5 @@
-import mongoose from 'mongoose';
+// import mongoose from 'mongoose';
+const mongoose = require('mongoose')
 const { Schema } = mongoose;
 
 const orderSchema = new Schema({
@@ -8,7 +9,7 @@ const orderSchema = new Schema({
   },
   img: {
     type: String,
-    required: fasle,
+    required: false,
   },
   title: {
     type: String,
@@ -38,4 +39,5 @@ const orderSchema = new Schema({
     timestamps:true
 });
 
-export default mongoose.model("Order", orderSchema)
+module.exports = mongoose.model("Order", orderSchema)
+

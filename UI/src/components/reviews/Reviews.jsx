@@ -10,14 +10,14 @@ const Reviews = ({ gigId }) => {
   const { isLoading, error, data } = useQuery({
     queryKey: ["reviews"],
     queryFn: () =>
-      axios.get(`http://localhost:8800/api/reviews/${gigId}`).then((res) => {
+      axios.get(`http://localhost:8800/api/reviews/${gigId}`,{ withCredentials: true }).then((res) => {
         return res.data;
       }),
   });
 
   const mutation = useMutation({
     mutationFn: (review) => {
-      return axios.post("http://localhost:8800/api/reviews", review);
+      return axios.post("http://localhost:8800/api/reviews",{ withCredentials: true }, review);
     },
     onSuccess:()=>{
       queryClient.invalidateQueries(["reviews"])
@@ -28,7 +28,7 @@ const Reviews = ({ gigId }) => {
     e.preventDefault();
     const desc = e.target[0].value;
     const star = e.target[1].value;
-    mutation.mutate({ gigId, desc, star });
+    mutation.mutate({ gigId, desc, star});
   };
 
   return (

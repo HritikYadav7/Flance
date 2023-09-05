@@ -3,35 +3,36 @@ import React from "react";
 import axios from "axios";
 // import newRequest from "../../utils/newRequest";
 import "./Review.scss";
-const Review = ({ review }) => {
-  const { isLoading, error, data } = useQuery(
-    {
-      queryKey: [review.userId],
-      queryFn: () =>
-        axios.get(`http://localhost:8800/api/users/${review.userId}`).then((res) => {
-          return res.data;
-        }),
-    },
-  );
 
+const Review = ({ review }) => {
+  // console.log(review.userId)
+  // const { isLoading, error, data } = useQuery(
+  //   {
+  //     queryKey: [review.userId],
+  //     queryFn: () =>
+  //       axios.get(`http://localhost:8800/api/users/${review.userID}`,{ withCredentials: true }).then((res) => {
+  //         return res.data;
+  //       }),
+  //   },
+  // );
 
   return (
     <div className="review">
-      {isLoading ? (
+      {/* {isLoading ? (
         "loading"
       ) : error ? (
         "error"
-      ) : (
+      ) : ( */}
         <div className="user">
-          <img className="pp" src={data.img || "/img/noavatar.jpg"} alt="" />
+          {/* <img className="pp" src={data.img || "/img/noavatar.jpg"} alt="" /> */}
           <div className="info">
-            <span>{data.username}</span>
+            {/* <span>{data.username}</span> */}
             <div className="country">
-              <span>{data.country}</span>
+              {/* <span>{data.country}</span> */}
             </div>
           </div>
         </div>
-      )}
+      {/* )}  */}
       <div className="stars">
         {Array(review.star)
           .fill()
