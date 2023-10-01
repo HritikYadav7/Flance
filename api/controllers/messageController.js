@@ -31,6 +31,8 @@ exports.createMessage = async (req, res, next) => {
 exports.getMessages = async (req, res, next) => {
   try {
     const messages = await Message.find({ conversationId: req.params.id });
+    console.log(messages)
+    console.log("This is getMessages")
     res.status(200).send(messages);
   } catch (err) {
     next(err);

@@ -27,6 +27,7 @@ const Messages = () => {
   });
 
   const handleRead = (id) => {
+    console.log("Mark as read")
     mutation.mutate(id);
   };
 
@@ -57,6 +58,7 @@ const Messages = () => {
                 }
                 key={c.id}
               >
+                {/* {console.log(c.id)} */}
                 <td>{currentUser.isSeller ? c.buyerId : c.sellerId}</td>
                 <td>
                   <Link to={`/message/${c.id}`} className="link">

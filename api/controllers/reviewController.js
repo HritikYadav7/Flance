@@ -18,11 +18,8 @@ exports.createReview = async (req, res, next) => {
       gigId: req.body.gigId,
       userId: req.userID,
     });
-<<<<<<< HEAD
     // console.log(req.userID)
-=======
     console.log(req.userID)
->>>>>>> 04a9e558222b053d49b7c52796f925a7b3781261
     if (review)
       return next(
         AppError("You have already created a review for this gig!", 403)
@@ -41,11 +38,8 @@ exports.createReview = async (req, res, next) => {
 exports.getReviews = async (req, res, next) => {
   try {
     const reviews = await Review.find({ gigId: req.params.gigId });
-<<<<<<< HEAD
     // console.log(reviews)
-=======
     console.log(reviews)
->>>>>>> 04a9e558222b053d49b7c52796f925a7b3781261
     res.status(200).send(reviews);
   } catch (err) {
     next(err);

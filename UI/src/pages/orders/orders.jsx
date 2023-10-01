@@ -22,13 +22,13 @@ const Orders = () => {
     const id = sellerId + buyerId;
 
     try {
-      const res = await axios.get(`http://localhost:8800/api/conversations/single/${id}`);
+      const res = await axios.get(`http://localhost:8800/api/conversations/single/${id}`,{withCredentials:true});
       navigate(`/message/${res.data.id}`);
     } catch (err) {
       if (err.response.status === 404) {
         const res = await axios.post(`http://localhost:8800/api/conversations/`, {
           to: currentUser.seller ? buyerId : sellerId,
-        });
+        },{withCredentials:true});
         navigate(`/message/${res.data.id}`);
       }
     }

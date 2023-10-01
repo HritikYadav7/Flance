@@ -7,20 +7,22 @@ import "./Message.scss";
 const Message = () => {
   const { id } = useParams();
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-
+  // console.log(id)
   const queryClient = useQueryClient();
-
+  console.log("This is Message")
   const { isLoading, error, data } = useQuery({
     queryKey: ["messages"],
     queryFn: () =>
-      axios.get(`http://localhost:8800/api/messages/${id}`).then((res) => {
+    axios.get(`http://localhost:8800/api/messages/${id}`,{ withCredentials: true }).then((res) => {
+        // console.log("cr7lm10")
+        console.log(res)
         return res.data;
       }),
   });
 
   const mutation = useMutation({
     mutationFn: (message) => {
-      return axios.post(`http://localhost:8800/api/messages`, message);
+      return axios.post(`http://localhost:8800/api/messages`, message,{ withCredentials: true });
     },
     onSuccess: () => {
       queryClient.invalidateQueries(["messages"]);
@@ -40,7 +42,7 @@ const Message = () => {
     <div className="message">
       <div className="container">
         <span className="breadcrumbs">
-          <Link to="/messages">Messages</Link> > Hritik Yadav >
+          <Link to="/messages">Messages</Link> - Hritik Yadav -
         </span>
         {isLoading ? (
           "loading"

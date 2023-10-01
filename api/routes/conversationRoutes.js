@@ -7,6 +7,6 @@ const router = express.Router();
 router.get("/", verifyJWT.verifyToken, conversationController.getConversations);
 router.post("/", verifyJWT.verifyToken, conversationController.createConversation);
 router.get("/single/:id", verifyJWT.verifyToken, conversationController.getSingleConversation);
-router.put("/:id", verifyJWT.verifyToken, conversationController.updateConversation);
+router.put("/:id", conversationController.updateConversation);
 
 module.exports = router;

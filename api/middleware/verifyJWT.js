@@ -2,9 +2,10 @@ const jwt =  require("jsonwebtoken")
 const AppError = require('../utils/AppError')
 
 exports.verifyToken = async (req, res, next) => {
-    const token = req.cookies.accessToken
+    const token = req.cookies.accessToken;
     // console.log(token)
-    // console.log("cr7")
+    // console.log(req.cookies)
+    console.log("This is verifyToken")
 
     if(!token) return next(AppError("You are not allowed !!!", 401))
       jwt.verify(token, process.env.JWT_SECRET, async (err, payload) => {
