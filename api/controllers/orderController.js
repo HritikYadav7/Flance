@@ -27,20 +27,23 @@ exports.intent = async (req, res, next) => {
   const stripe = new Stripe(process.env.STRIPE);
 
   const gig = await Gig.findById(req.params.id);
-
+  console.log(gig)
   const paymentIntent = await stripe.paymentIntents.create({
     amount: gig.price * 100,
     currency: "usd",
+    // payment_method_types : 'card',
     automatic_payment_methods: {
       enabled: true,
     },
   });
+  console.log(req.userID)
+  console.log("This is Intent")
 
   const newOrder = new Order({
     gigId: gig._id,
     img: gig.cover,
     title: gig.title,
-    buyerId: req.userId,
+    buyerId: req.userID,
     sellerId: gig.userId,
     price: gig.price,
     payment_intent: paymentIntent.id,

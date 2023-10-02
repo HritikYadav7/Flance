@@ -7,12 +7,15 @@ import Navbar from "./components/Navbar/Navbar"
 import Footer from "./components/Footer/Footer";
 import Message from "./pages/message/message"
 import Messages from "./pages/messages/messages"
-import Gigs from "./pages/Gigs/Gigs"
+import Gigs from "./pages/gigs/Gigs"
 import Gig from "./pages/Gig/Gig"
 import Register from "./pages/register/register"
 import Orders from "./pages/orders/orders"
 import MyGigs from "./pages/MyGigs/myGigs"
 import Add from "./pages/Add/Add"
+import Pay from "./pages/pay/pay"
+import Success from "./pages/success/Success"
+
 import {
   QueryClient,
   QueryClientProvider,
@@ -76,6 +79,14 @@ function App() {
         {
           path: "/orders",
           element: <Orders />
+        },
+        {
+          path: "/pay/:id",
+          element: <Pay />
+        },
+        {
+          path: "/success",
+          element: <Success />
         },
       ]
     },
