@@ -30,7 +30,7 @@ exports.intent = async (req, res, next) => {
   console.log(gig)
   const paymentIntent = await stripe.paymentIntents.create({
     amount: gig.price * 100,
-    currency: "usd",
+    currency: "INR",
     // payment_method_types : 'card',
     automatic_payment_methods: {
       enabled: true,
