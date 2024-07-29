@@ -24,7 +24,8 @@ const gigSchema = new Schema({
   },
   cat:{
     type : String,
-    required: true,
+    required: false,
+    default: "design"
   },
   price:{
     type : Number,
@@ -36,7 +37,7 @@ const gigSchema = new Schema({
   },
   images:{
     type : [String],
-    required: false,
+    required: true,
   },
   shortTitle:{
     type : String,
@@ -52,7 +53,7 @@ const gigSchema = new Schema({
   },
   revisionNumber:{
     type : String,
-    required: true,
+    required: false,
   },
   features:{
     type : [String],

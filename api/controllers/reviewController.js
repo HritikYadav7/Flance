@@ -3,6 +3,7 @@ const Review = require('./../models/reviewModel.js')
 const Gig = require('./../models/gigModel.js')
 
 exports.createReview = async (req, res, next) => {
+  // console.log("YES")
   if (req.isSeller)
     return next(AppError("Sellers can't create a review!", 403));
   const newReview = new Review({
@@ -19,7 +20,7 @@ exports.createReview = async (req, res, next) => {
       userId: req.userID,
     });
     // console.log(req.userID)
-    console.log(req.userID)
+    // console.log("In Review")
     if (review)
       return next(
         AppError("You have already created a review for this gig!", 403)
@@ -39,7 +40,7 @@ exports.getReviews = async (req, res, next) => {
   try {
     const reviews = await Review.find({ gigId: req.params.gigId });
     // console.log(reviews)
-    console.log(reviews)
+    // console.log(reviews)
     res.status(200).send(reviews);
   } catch (err) {
     next(err);

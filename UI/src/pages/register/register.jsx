@@ -15,6 +15,23 @@ function register() {
     desc: "",
   });
   // console.log(user);
+  
+  const upload = async (file)=> {
+    const data = new FormData();
+    data.append("file", file);
+    data.append("upload_preset", "flance");
+
+    try{
+      // drtufodqp
+      const res = await axios.post("https://api.cloudinary.com/v1_1/drtufodqp/image/upload", data);
+      const {url} =res.data;
+      return url;
+    }
+    catch(err){ 
+      console.log(err);
+    }
+  }
+
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -31,16 +48,16 @@ function register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // const url = await upload(file);
+    const url = await upload(file);
     try {
       await axios.post("http://localhost:8800/api/auth/register",
       { 
         ...user,
-        // img: url,
+        img: url,
       });
       navigate("/")
     } catch (err) {
-      // console.log(err);
+      console.log(err);
     }
   };
   return (
@@ -70,7 +87,7 @@ function register() {
           <input
             name="country"
             type="text"
-            placeholder="Usa"
+            placeholder="India"
             onChange={handleChange}
           />
           <button type="submit">Register</button>

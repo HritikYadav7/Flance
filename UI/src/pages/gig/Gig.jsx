@@ -13,11 +13,11 @@ function Gig() {
   const { isLoading, error, data } = useQuery({
     queryKey: ["gig"],
     queryFn: () =>
-      axios.get(`http://localhost:8800/api/gigs/single/${id}`).then((res) => {
+      axios.get(`http://localhost:8800/api/gigs/single/${id}`, {withCredentials:true}).then((res) => {
         return res.data;
       }),
   });
-  console.log("This is gig")
+  // console.log("This is gig")
   const userId = data?.userId;
 
   const {
@@ -27,7 +27,7 @@ function Gig() {
   } = useQuery({
     queryKey: ["user"],
     queryFn: () =>
-      axios.get(`http://localhost:8800/api/users/${userId}`).then((res) => {
+      axios.get(`http://localhost:8800/api/users/${userId}`, {withCredentials:true}).then((res) => {
         return res.data;
       }),
     enabled: !!userId,
@@ -44,7 +44,7 @@ function Gig() {
         <div className="container">
           <div className="left">
             <span className="breadcrumbs">
-              Fiverr {">"} Graphics & Design {">"}
+              Flance {">"} Graphics & Design {">"}
             </span>
             <h1>{data.title}</h1>
             {isLoadingUser ? (
@@ -65,8 +65,10 @@ function Gig() {
                       .fill()
                       .map((item, i) => (
                         <img src="/img/star.png" alt="" key={i} />
-                      ))}
-                    <span>{Math.round(data.totalStars / data.starNumber)}</span>
+                      ))
+                      }
+                    <span>{Math.round((data.totalStars / data.starNumber)*10)/10}</span>
+                    <span className="totalReviews">({data.starNumber})</span>
                   </div>
                 )}
               </div>
@@ -97,8 +99,10 @@ function Gig() {
                             <img src="/img/star.png" alt="" key={i} />
                           ))}
                         <span>
-                          {Math.round(data.totalStars / data.starNumber)}
+                          {Math.round((data.totalStars / data.starNumber)*10)/10}
                         </span>
+                        <span className="totalReviews">({data.starNumber})</span>
+
                       </div>
                     )}
                     <button>Contact Me</button>
@@ -137,7 +141,7 @@ function Gig() {
           <div className="right">
             <div className="price">
               <h3>{data.shortTitle}</h3>
-              <h2>$ {data.price}</h2>
+              <h2>₹ {data.price}</h2>
             </div>
             <p>{data.shortDesc}</p>
             <div className="details">

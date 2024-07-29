@@ -1,0 +1,25 @@
+# Query: Fiverr
+
+18 results - 5 files
+
+UI\src\components\Navbar\Navbar.jsx:
+  51:               <span className="text">fiverr</span>
+  56:             <span>Flance Business</span>
+
+UI\src\components\trustedBy\TrustedBy.jsx:
+  10:       <img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/facebook2x.188a797.png" alt="" />
+  11:       <img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/google2x.06d74c8.png" alt="" />
+  12:       <img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/netflix2x.887e47e.png" alt="" />
+  13:       <img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/pandg2x.6dc32e4.png" alt="" />
+  14:       <img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/paypal2x.22728be.png" alt="" />
+
+UI\src\pages\gig\Gig.jsx:
+  47:               Flance {">"} Graphics & Design {">"}
+
+UI\src\pages\home\Home.jsx:
+  60:             <video src="https://fiverr-res.cloudinary.com/video/upload/t_fiverr_hd/vmvv3czyk2ifedefkau7" controls></video>
+  70:               Flance <i>business</i>
+  96:             <img src="https://fiverr-res.cloudinary.com/q_auto,f_auto,w_870,dpr_1.0/v1/attachments/generic_asset/asset/d9c17ceebda44764b591a8074a898e63-1599597624757/business-desktop-870-x1.png" alt="" />
+
+UI\src\pages\utils\upload.js:
+  6:   data.append("upload_preset", "fiverr");

@@ -9,13 +9,13 @@ const Message = () => {
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
   // console.log(id)
   const queryClient = useQueryClient();
-  console.log("This is Message")
+  // console.log("This is Message")
   const { isLoading, error, data } = useQuery({
     queryKey: ["messages"],
     queryFn: () =>
     axios.get(`http://localhost:8800/api/messages/${id}`,{ withCredentials: true }).then((res) => {
         // console.log("cr7lm10")
-        console.log(res)
+        // console.log(res)
         return res.data;
       }),
   });

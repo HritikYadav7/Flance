@@ -45,7 +45,7 @@ exports.login =  (async(req, res, next) => {
         res.cookie('accessToken', token, {
             httpOnly: true,
         })
-        console.log("cookie")
+        // console.log("cookie")
         user.password = undefined
         res.status(201).send(user)
 

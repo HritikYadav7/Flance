@@ -19,7 +19,7 @@ function login() {
       { withCredentials: true }
       );
       localStorage.setItem("currentUser", JSON.stringify(res.data))
-      console.log(res);
+      // console.log(res);
       navigate("/");
     }
     catch (err) {

@@ -1,0 +1,196 @@
+# Query: console.log(
+# ContextLines: 1
+
+49 results - 22 files
+
+api\server.js:
+  13  .then((con) => {
+  14:     console.log("DB connection successful ...")
+  15  })
+
+  18  app.listen(8800, ()=>{
+  19:     console.log("Server is running on port 8800")
+  20  })
+
+api\controllers\authController.js:
+  33          const user = await User.findOne({username: req.body.username})
+  34:         // console.log(user)
+  35          if(!user) return next(AppError('User not found !!!', 404))
+
+  47          })
+  48:  
+  49          user.password = undefined
+
+api\controllers\conversationController.js:
+   4  exports.createConversation = async (req, res, next) => {
+   5:   // console.log(req.body.to)
+   6    const newConversation = new Conversation({
+
+  23  exports.updateConversation = async (req, res, next) => {
+  24:   console.log("This is updateConversation")
+  25    try {
+
+  36      );
+  37:   // console.log(updatedConversation)
+  38      res.status(200).send(updatedConversation);
+
+api\controllers\errorController.js:
+  5  module.exports = (err, req, res, next) => {
+  6:     // console.log(err.stack);
+  7    
+
+api\controllers\messageController.js:
+  33      const messages = await Message.find({ conversationId: req.params.id });
+  34:     
+  35:     console.log("This is getMessages")
+  36      res.status(200).send(messages);
+
+api\controllers\orderController.js:
+   7      try{
+   8:         // console.log(req.params.gigId)
+   9          const gig = await Gig.findById(req.params.gigId);
+
+  29    const gig = await Gig.findById(req.params.id);
+  30:   
+  31    const paymentIntent = await stripe.paymentIntents.create({
+
+  38    });
+  39:   console.log(req.userID)
+  40:   console.log("This is Intent")
+  41  
+
+  64      });
+  65:     // console.log(req.userID)
+  66:     // console.log(orders)
+  67      res.status(200).send(orders);
+
+api\controllers\reviewController.js:
+  20      });
+  21:     // console.log(req.userID)
+  22:     console.log(req.userID)
+  23      if (review)
+
+  40      const reviews = await Review.find({ gigId: req.params.gigId });
+  41:     // console.log(reviews)
+  42:     
+  43      res.status(200).send(reviews);
+
+api\controllers\userController.js:
+  19      const user = await User.findById(req.params.id);
+  20:     console.log(req.params.id)
+  21      res.status(200).send(user);
+
+api\middleware\verifyJWT.js:
+  5      const token = req.cookies.accessToken;
+  6:     // console.log(token)
+  7:     console.log(req.cookie)
+  8:     console.log("This is verifyToken")
+  9  
+
+UI\src\components\checkourForm\checkoutForm.jsx:
+  49      e.preventDefault();
+  50:     console.log(stripe)
+  51      if (!stripe || !elements) {
+
+  65      });
+  66:     // console.log("cr7")
+  67  
+
+  76        setMessage("An unexpected error occurred.");
+  77:       console.log(error.type)
+  78      }
+
+UI\src\components\Navbar\Navbar.jsx:
+  22          a > 0 ? setActive(true) : setActive(false);
+  23:         
+  24      }
+
+  41              } catch (error) {
+  42:                 console.log(error);
+  43              }
+
+UI\src\components\review\Review.jsx:
+  7  const Review = ({ review }) => {
+  8:   // console.log(review.userId)
+  9    // const { isLoading, error, data } = useQuery(
+
+UI\src\pages\add\Add.jsx:
+  41        );
+  42:       console.log(images)
+  43        
+
+  46      } catch (err) {
+  47:       console.log(err);
+  48      }
+
+UI\src\pages\gig\Gig.jsx:
+  11    const { id } = useParams();
+  12:   // console.log(id)
+  13    const { isLoading, error, data } = useQuery({
+
+  19    });
+  20:   console.log("This is gig")
+  21    const userId = data?.userId;
+
+UI\src\pages\gigs\Gigs.jsx:
+  30  
+  31:   // console.log(data)
+  32  
+
+UI\src\pages\login\login.jsx:
+  21        localStorage.setItem("currentUser", JSON.stringify(res.data))
+  22:       
+  23        navigate("/");
+
+UI\src\pages\message\message.jsx:
+   9    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+  10:   // console.log(id)
+  11    const queryClient = useQueryClient();
+  12:   console.log("This is Message")
+  13    const { isLoading, error, data } = useQuery({
+
+  16      axios.get(`http://localhost:8800/api/messages/${id}`,{ withCredentials: true }).then((res) => {
+  17:         // console.log("cr7lm10")
+  18:         
+  19          return res.data;
+
+UI\src\pages\messages\messages.jsx:
+  29    const handleRead = (id) => {
+  30:     console.log("Mark as read")
+  31      mutation.mutate(id);
+
+  60                >
+  61:                 {/* {console.log(c.id)} */}
+  62                  <td>{currentUser.isSeller ? c.buyerId : c.sellerId}</td>
+
+UI\src\pages\pay\pay.jsx:
+  20        try {
+  21:         console.log("This is checkout form")
+  22          const res = await axios.post(`http://localhost:8800/api/orders/create-payment-intent/${id}`,id,{withCredentials:true});
+
+  25        } catch (err) {
+  26:         console.log(err);
+  27        }
+
+UI\src\pages\register\register.jsx:
+  16    });
+  17:   // console.log(user);
+  18    const navigate = useNavigate();
+
+  42      } catch (err) {
+  43:       // console.log(err);
+  44      }
+
+UI\src\pages\success\Success.jsx:
+  19        } catch (err) {
+  20:         console.log(err);
+  21        }
+
+UI\src\pages\utils\upload.js:
+   6    data.append("upload_preset", "fiverr");
+   7:   
+   8    try {
+
+  13    } catch (err) {
+  14:     console.log(err);
+  15    }

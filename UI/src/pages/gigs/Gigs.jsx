@@ -16,6 +16,7 @@ function Gigs() {
 
   const { search } = useLocation();
 
+
   const { isLoading, error, data, refetch } = useQuery({
     queryKey: ["realMadrid"],
     queryFn: () =>

@@ -17,12 +17,13 @@ const Reviews = ({ gigId }) => {
 
   const mutation = useMutation({
     mutationFn: (review) => {
-      return axios.post("http://localhost:8800/api/reviews", review);
+      return axios.post("http://localhost:8800/api/reviews", review, { withCredentials: true });
     },
     onSuccess:()=>{
       queryClient.invalidateQueries(["reviews"])
     }
   });
+
 
   const handleSubmit = (e) => {
     e.preventDefault();

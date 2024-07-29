@@ -119,6 +119,7 @@ export const cards = [
       username: "Anna Bell",
     },
     {
+      
       id: 2,
       img: "https://images.pexels.com/photos/4145190/pexels-photo-4145190.jpeg?auto=compress&cs=tinysrgb&w=1600",
       pp: "https://images.pexels.com/photos/1036627/pexels-photo-1036627.jpeg?auto=compress&cs=tinysrgb&w=1600",
